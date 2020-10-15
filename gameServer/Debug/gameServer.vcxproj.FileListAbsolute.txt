@@ -1,0 +1,2 @@
+C:\Users\flabi\source\repos\gameServer\Debug\gameServer.exe
+C:\Users\flabi\source\repos\gameServer\Debug\gameServer.pdb
