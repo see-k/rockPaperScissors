@@ -1,5 +1,5 @@
 // gameServer.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// PUSH TEST WAS SUCCESSFULL!!
 
 #include <stdio.h>
 #include <unistd.h>
