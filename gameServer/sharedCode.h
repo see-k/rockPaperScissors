@@ -7,6 +7,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <netdb.h>
+
+static const int MAXPENDING = 5; // Maximum outstanding connection requests
 
 //Function Die With User Message
 void DieWithUserMessage(const char* msg, const char* detail) {

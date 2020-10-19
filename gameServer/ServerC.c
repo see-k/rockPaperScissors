@@ -29,7 +29,7 @@
 #include <sys/wait.h>
 #include "sharedCode.h"
 
-static const int MAXPENDING = 5; // Maximum outstanding connection requests
+
 
 
 
@@ -37,7 +37,7 @@ static const int MAXPENDING = 5; // Maximum outstanding connection requests
 void HandleTCPClient(int clntSocket) {
 
     //Launch ServerG
-    err =  execl("./ServerG", "ServerG", clntSocket, (char *)NULL);
+    int  err =  execl("./ServerG", "ServerG", clntSocket, (char *)NULL);
     if (err == -1)
     {
         printf("Failed to launch ServerG");
