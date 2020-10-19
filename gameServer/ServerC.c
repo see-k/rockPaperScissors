@@ -1,5 +1,4 @@
-// gameServer.cpp : This file contains the 'main' function. Program execution begins and ends there.
-// PULL TEST WAS SUCCESSFULL!!
+
 
 #include <string.h>
 #include <sys/types.h>
