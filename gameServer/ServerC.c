@@ -1,4 +1,4 @@
-
+//
 
 #include <string.h>
 #include <sys/types.h>
@@ -17,29 +17,37 @@ static const int MAXPENDING = 5; // Maximum outstanding connection requests
 
 //Fuction: HandleTCP Client
 void HandleTCPClient(int clntSocket) {
-    char buffer[BUFSIZE]; // Buffer for echo string
+    //char buffer[BUFSIZE]; // Buffer for echo string
 
-    // Receive message from client
-    ssize_t numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
-    if (numBytesRcvd < 0)
-        DieWithSystemMessage("recv() failed");
+    //// Receive message from client
+    //ssize_t numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
+    //if (numBytesRcvd < 0)
+    //    DieWithSystemMessage("recv() failed");
 
-    // Send received string and receive again until end of stream
-    while (numBytesRcvd > 0)
-    { // 0 indicates end of stream
-        // Echo message back to client
-        ssize_t numBytesSent = send(clntSocket, buffer, numBytesRcvd, 0);
-        if (numBytesSent < 0)
-            DieWithSystemMessage("send() failed");
-        else if (numBytesSent != numBytesRcvd)
-            DieWithUserMessage("send()", "sent unexpected number of bytes");
+    //// Send received string and receive again until end of stream
+    //while (numBytesRcvd > 0)
+    //{ // 0 indicates end of stream
+    //    // Echo message back to client
+    //    ssize_t numBytesSent = send(clntSocket, buffer, numBytesRcvd, 0);
+    //    if (numBytesSent < 0)
+    //        DieWithSystemMessage("send() failed");
+    //    else if (numBytesSent != numBytesRcvd)
+    //        DieWithUserMessage("send()", "sent unexpected number of bytes");
 
-        // See if there is more data to receive
-        numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
-        if (numBytesRcvd < 0)
-            DieWithSystemMessage("recv() failed");
+    //    // See if there is more data to receive
+    //    numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
+    //    if (numBytesRcvd < 0)
+    //        DieWithSystemMessage("recv() failed");
 
+    //Launch ServerG
+    err =  execl("./ServerG", "ServerG", clntSocket, (char *)NULL);
+    if (err == -1)
+    {
+        printf("Failed to launch ServerG");
+        exit(1);
     }
+
+  
 }
     
 int main(int argc, char* argv[])
