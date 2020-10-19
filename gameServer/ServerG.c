@@ -8,13 +8,13 @@ Play best n out of m rounds of the game
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include "sharedCode.h"
+#include "sharedCode.h"
+
 
 #define bufferSize 1024
  
 int main(int argc, char* argv[])
 {
-    
     int R = 1;
     int P = 2;
     int S = 3;

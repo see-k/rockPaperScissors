@@ -1,9 +1,3 @@
-//Shared Code
-#ifndef SharedCode
-#define SharedCode
-#endif // !SharedCode
-
-
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>

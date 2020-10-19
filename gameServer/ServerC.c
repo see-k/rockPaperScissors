@@ -1,4 +1,22 @@
-//
+//File: ServerC.c
+// prj02 : This file contains the 'main' function. Program execution begins and ends there.
+// Author: CHIKE OKONTA
+// CLASS: CSCI 312
+// PROJECT 02: Implementation file (ServerC.c)
+// Date: 10/19/2020
+/*
+*                   PURPOSE
+*  Play rock Paper and Scissors using client server connections
+*/
+/*
+*                   INSTRUCTIONS
+* 1. Ensure ServerC.c, ServerG.c, sharedCode.h are all in the same directory
+* 2. run the following line in terminal: make
+* 4. run pwd to ensure makefile was successfully generated
+* 5. run  the following command
+*       ./ServerC
+* 6. follow instructions on the screen
+*/
 
 #include <string.h>
 #include <sys/types.h>
@@ -17,27 +35,6 @@ static const int MAXPENDING = 5; // Maximum outstanding connection requests
 
 //Fuction: HandleTCP Client
 void HandleTCPClient(int clntSocket) {
-    //char buffer[BUFSIZE]; // Buffer for echo string
-
-    //// Receive message from client
-    //ssize_t numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
-    //if (numBytesRcvd < 0)
-    //    DieWithSystemMessage("recv() failed");
-
-    //// Send received string and receive again until end of stream
-    //while (numBytesRcvd > 0)
-    //{ // 0 indicates end of stream
-    //    // Echo message back to client
-    //    ssize_t numBytesSent = send(clntSocket, buffer, numBytesRcvd, 0);
-    //    if (numBytesSent < 0)
-    //        DieWithSystemMessage("send() failed");
-    //    else if (numBytesSent != numBytesRcvd)
-    //        DieWithUserMessage("send()", "sent unexpected number of bytes");
-
-    //    // See if there is more data to receive
-    //    numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
-    //    if (numBytesRcvd < 0)
-    //        DieWithSystemMessage("recv() failed");
 
     //Launch ServerG
     err =  execl("./ServerG", "ServerG", clntSocket, (char *)NULL);
@@ -115,3 +112,24 @@ int main(int argc, char* argv[])
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
 
+    //char buffer[BUFSIZE]; // Buffer for echo string
+
+    //// Receive message from client
+    //ssize_t numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
+    //if (numBytesRcvd < 0)
+    //    DieWithSystemMessage("recv() failed");
+
+    //// Send received string and receive again until end of stream
+    //while (numBytesRcvd > 0)
+    //{ // 0 indicates end of stream
+    //    // Echo message back to client
+    //    ssize_t numBytesSent = send(clntSocket, buffer, numBytesRcvd, 0);
+    //    if (numBytesSent < 0)
+    //        DieWithSystemMessage("send() failed");
+    //    else if (numBytesSent != numBytesRcvd)
+    //        DieWithUserMessage("send()", "sent unexpected number of bytes");
+
+    //    // See if there is more data to receive
+    //    numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
+    //    if (numBytesRcvd < 0)
+    //        DieWithSystemMessage("recv() failed");
