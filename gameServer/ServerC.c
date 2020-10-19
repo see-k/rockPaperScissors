@@ -2,7 +2,7 @@
 // prj02 : This file contains the 'main' function. Program execution begins and ends there.
 // Author: CHIKE OKONTA
 // CLASS: CSCI 312
-// PROJECT 02: Implementation file (ServerC.c)
+// PROJECT 03: Implementation file (ServerC.c)
 // Date: 10/19/2020
 /*
 *                   PURPOSE

@@ -1,8 +1,21 @@
+//File: sharedCode.h
+// prj02 : 
+// Author: CHIKE OKONTA
+// CLASS: CSCI 312
+// PROJECT 03: Implementation file (ServerG.c)
+// Date: 10/19/2020
 /*
-
-Instructions:
-Play best n out of m rounds of the game
-
+*                   PURPOSE
+*  Play rock Paper and Scissors using client server connections
+*/
+/*
+*                   INSTRUCTIONS
+* 1. Ensure ServerC.c, ServerG.c, sharedCode.h are all in the same directory
+* 2. run the following line in terminal: make
+* 4. run pwd to ensure makefile was successfully generated
+* 5. run  the following command
+*       ./ServerC
+* 6. follow instructions on the screen
 */
 
 #include <stdio.h>
