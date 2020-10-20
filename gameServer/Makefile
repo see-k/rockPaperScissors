@@ -1,5 +1,5 @@
-CC = gcc
-CFLAGS = -Wall -g -std=c99
+CC = gcc -std=gnu99
+CFLAGS = -Wall -g 
 
 all: ServerG ServerC 
 

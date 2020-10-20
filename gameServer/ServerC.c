@@ -31,7 +31,26 @@
 #include "soc.h"
 
 
-
+int AcceptTCPConnection(int servSock) 
+{
+     struct sockaddr_storage clntAddr; // Client address
+     // Set length of client address structure (in-out parameter)
+     socklen_t clntAddrLen = sizeof(clntAddr);
+    
+         // Wait for a client to connect
+     int clntSock = accept(servSock, (struct sockaddr*)&clntAddr, &clntAddrLen);
+     if (clntSock < 0)
+         DieWithSystemMessage("accept() failed");
+    
+         // clntSock is connected to a client!
+        
+     fputs("Handling client ", stdout);
+     PrintSocketAddress((struct sockaddr*)&clntAddr, stdout);
+     fputc('\n', stdout);
+    
+     return clntSock;
+    
+}
 
 
 //Fuction: HandleTCP Client
