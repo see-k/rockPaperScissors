@@ -75,17 +75,19 @@ int main(int argc, char* argv[])
 
     char* service = argv[1]; // First arg: local port/service
     int servSock = SetupTCPServerSocket(service);
+  
     if (servSock < 0)
         DieWithUserMessage("SetupTCPServerSocket() failed", "unable to establish");
-
+    printf("Socket successfully created\n");
     unsigned int childProcCount = 0; // Number of child processes
 
     //SERVER C
     for (;;) 
     { // Run forever
          // New connection creates a client socket
+        printf("Accepting connection...\n");
          int clntSock = AcceptTCPConnection(servSock);
-
+         printf("Accepted connection succefully. Launching child process\n");
          // Fork child process and report any errors
          pid_t processID = fork();
 

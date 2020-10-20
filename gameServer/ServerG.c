@@ -8,10 +8,11 @@ Play best n out of m rounds of the game
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include "sharedCode.h"
+#include "sharedCode.h"
 
 
 #define bufferSize 1024
+char buffer[BUFSIZE]; // Buffer for echo string
  
 int main(int argc, char* argv[])
 {
@@ -23,20 +24,27 @@ int main(int argc, char* argv[])
     int p2Score = 0;
     int choice;
     char p1response[bufferSize];
+    int client = atoi(argv[2]);
 
     //Generate m and n
     srand(time(NULL));
     int n = rand() % 3 + 1;
     int m = rand() % 5 + 1;
+	
+	int Player2 = 0;
 
     //Launch game
     printf("Game Started\n Best %d out of %d\n ", n , m);
+    printf("client is %d\n", client);
     printf("Rock=1 , Paper= 2, and Scissors= 3\n");
 
     for (i = 0; (i < m) && (p1Score != n ) && (p2Score != n); i++) {
         printf("Enter your choice Player 1:");
         scanf("%d", &choice);
-        int Player2 = rand() % 3 + 1;
+
+		Player2 = rand() % 3 + 1;
+
+        
         if (choice == 1) {
             if (Player2 == 1) {
                 printf("Draw\n");
