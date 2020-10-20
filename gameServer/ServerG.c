@@ -37,17 +37,17 @@ int main(int argc, char* argv[])
     int choice;
     char p1response[bufferSize];
 
-    //Generate m and n
+    //Generate n = number of points required to win
     srand(time(NULL));
-    int n = rand() % 3 + 1;
-    int m = rand() % 5 + 1;
+    int n = rand() % 4 + 2;
 
     //Launch game
-    printf("Game Started\n Best %d out of %d\n ", n , m);
+    printf("Game Started\n First to %d points wins the match!\n ", n);
     printf("Rock=1 , Paper= 2, and Scissors= 3\n");
 
-    for (i = 0; (i < m) && (p1Score != n ) && (p2Score != n); i++) {
+    while ((p1Score < n ) && (p2Score < n)) {
         printf("Enter your choice Player 1:");
+//change to communicate with client:
         scanf("%d", &choice);
         int Player2 = rand() % 3 + 1;
         if (choice == 1) {
