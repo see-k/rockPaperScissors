@@ -1,10 +1,5 @@
-/* 
- * Example program of socket use within a client. 
- * 
- * References: 
-* Linux man pages for server 199.17.28.75: socket, bind,   * listen, accept, ip(7). 
- * Donahoo and Calvert, TCP/IP Sockets, pp. 11 – 33. 
- * Robins and Robins, UNIX Systems Programming, pp. 630 - 642.  */ 
+//Client interacts with ServerG.  Takes input from user and prints input from server.
+//Written by Don Lieu
  
 #include 	<errno.h> 
 #include 	<stdio.h> 
@@ -50,8 +45,7 @@ int main (int argc, char *argv[])
  	
  	// Send message to server. 
  	
- 	//err = send (cSocket, "Connection made!\n", 17, 0);  
- 	//printf ("socClient: number of bytes sent to server: %d\n", err);
+ 
  	do
 	{
 		err = recv(cSocket, Buf0, 17, MSG_WAITALL);
@@ -130,10 +124,7 @@ int main (int argc, char *argv[])
 	 	{
 	 		printf("ERROR. \n");
 	 	}
-	 	//Receive game status from server
-	 	//Display server move
-	 	//Done if server declares done
- 	}
+	 }
  	/*do
 	{
 		err = recv(cSocket, Buf3, 17, MSG_WAITALL); //Declare winner
