@@ -50,6 +50,7 @@ int main (int argc, char *argv[])
 	{
 		err = recv(cSocket, Buf0, 17, MSG_WAITALL);
 	} while (err == -1);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	printf("%c\n", Buf0); 
 	
  	while(!done)
@@ -60,14 +61,17 @@ int main (int argc, char *argv[])
 	 	if (choice == 1)
 	 	{
 	 		err = send(cSocket, "rock", 17, 0);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange won."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		if (Buf2 == "done")
 	 		{
@@ -81,14 +85,17 @@ int main (int argc, char *argv[])
 	 	else if (choice == 2)
 	 	{
 	 		err = send(cSocket, "paper", 17, 0);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange lost."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		if (Buf2 == "done")
 	 		{
@@ -102,14 +109,17 @@ int main (int argc, char *argv[])
 	 	else if (choice == 3)
 	 	{
 	 		err = send(cSocket, "scissors", 17, 0);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange is a tie."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
+//UNSURE IF CORRECT SYNTAX.  PLEASE FIX IF INCORRECT OR REMOVE COMMENT!!!
 	 		} while (err == -1);
 	 		if (Buf2 == "done")
 	 		{
