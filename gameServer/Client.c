@@ -24,7 +24,7 @@ int main (int argc, char *argv[])
  	int err; 
  	int cSocket; 
  	int choice;
- 	char Buf1[BUFL], Buf2[BUFL];
+ 	char Buf0[BUFL], Buf1[BUFL], Buf2[BUFL], Buf3[BUFL];
  	bool done = false;
  	struct sockaddr_in sAddr; 
  	struct sockaddr_in cAddr; 
@@ -33,8 +33,8 @@ int main (int argc, char *argv[])
  	cAddr.sin_family = AF_INET; 
  	cAddr.sin_port = htons (SERVERPORT); 
  	cAddr.sin_addr.s_addr = inet_addr(SERVERIP); 
- 	cSocket = socket ( AF_INET, SOCK_STREAM, 0); // AF_INET  
  	
+ 	cSocket = socket ( AF_INET, SOCK_STREAM, 0); // AF_INET  
  	if (cSocket == -1) 
  	{ 
  		perror ("socClient: socket creation failed");  exit (1); 
@@ -51,9 +51,16 @@ int main (int argc, char *argv[])
  	// Send message to server. 
  	
  	//err = send (cSocket, "Connection made!\n", 17, 0);  
- 	//printf ("socClient: number of bytes sent to server: %d\n", err); 
+ 	//printf ("socClient: number of bytes sent to server: %d\n", err);
+ 	do
+	{
+		err = recv(cSocket, Buf0, 17, MSG_WAITALL);
+	} while (err == -1);
+	printf("%c\n", Buf0); 
+	
  	while(!done)
 	 {
+	 	
 	 	printf ("Please enter your move.  Type '1' for Rock, type '2' for Paper, and type '3' for Scissors. \n");
 	 	scanf("%d", &choice);
 	 	if (choice == 1)
@@ -63,7 +70,7 @@ int main (int argc, char *argv[])
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
 	 		} while (err == -1);
-	 		printf("%c", Buff1);  //Something like "Opponent chose scissors.  Exchange won."
+	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange won."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
@@ -84,7 +91,7 @@ int main (int argc, char *argv[])
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
 	 		} while (err == -1);
-	 		printf("%c", Buff1);  //Something like "Opponent chose scissors.  Exchange lost."
+	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange lost."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
@@ -105,14 +112,14 @@ int main (int argc, char *argv[])
 	 		{
 	 			err = recv(cSocket, Buf1, 17, MSG_WAITALL);
 	 		} while (err == -1);
-	 		printf("%c", Buff1);  //Something like "Opponent chose scissors.  Exchange is a tie."
+	 		printf("%c", Buf1);  //Something like "Opponent chose scissors.  Exchange is a tie."
 	 		do
 	 		{
 	 			err = recv(cSocket, Buf2, 17, MSG_WAITALL);
 	 		} while (err == -1);
 	 		if (Buf2 == "done")
 	 		{
-	 			done = true;
+	 			done = true; //End loop
 	 		}
 	 		else
 	 		{
@@ -127,6 +134,11 @@ int main (int argc, char *argv[])
 	 	//Display server move
 	 	//Done if server declares done
  	}
+ 	/*do
+	{
+		err = recv(cSocket, Buf3, 17, MSG_WAITALL); //Declare winner
+		printf("%c\n", Buf3);
+	} while (err == -1);*/
  	exit (0); 
 } 
 
