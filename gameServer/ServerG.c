@@ -8,7 +8,7 @@ Play best n out of m rounds of the game
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "sharedCode.h"
+//#include "sharedCode.h"
 
 
 #define bufferSize 1024

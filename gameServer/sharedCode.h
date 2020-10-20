@@ -1,13 +1,4 @@
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <netdb.h>
+#include "soc.h"
 
 static const int MAXPENDING = 5; // Maximum outstanding connection requests
 

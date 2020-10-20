@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include "sharedCode.h"
+#include "soc.h"
 
 
 
