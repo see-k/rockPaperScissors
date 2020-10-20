@@ -11,9 +11,9 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <netdb.h>
-#define 	SERVERPORT 31200 
-#define 	SERVERPORTSTR "31200" 
-#define 	SERVERIP "199.17.28.75"
-#define 	SERVERNAME "ahscentos" 
+//#define 	SERVERPORT 31200 
+//#define 	SERVERPORTSTR "31200" 
+//#define 	SERVERIP "199.17.28.75"
+//#define 	SERVERNAME "ahscentos" 
 #endif 
 
